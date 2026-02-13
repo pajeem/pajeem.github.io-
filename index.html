@@ -3,52 +3,223 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MODSecure | Cyber checks for small businesses</title>
-  <meta name="description" content="Cyber security checks for small businesses. Clear findings, practical fixes, no IT department needed." />
+  <title>MODSecure | Cyber Security for Small Businesses</title>
+  <meta name="description" content="Free Cyber Health Check + clear report. Vulnerability scanning and practical fixes for small businesses — no IT department needed." />
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; line-height: 1.5; }
-    header { padding: 64px 20px; max-width: 900px; margin: 0 auto; }
-    .badge { display:inline-block; padding:6px 10px; border:1px solid #ddd; border-radius:999px; font-size:14px; }
-    h1 { font-size: 42px; margin: 16px 0 10px; }
-    p { font-size: 18px; color: #333; max-width: 60ch; }
-    .cta a { display:inline-block; margin-right: 12px; margin-top: 14px; padding: 12px 16px; border-radius: 10px; border: 1px solid #111; text-decoration: none; color:#111; }
-    .cta a.primary { background:#111; color:#fff; }
-    section { padding: 10px 20px 60px; max-width: 900px; margin: 0 auto; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-    .card { border:1px solid #eee; border-radius:14px; padding:16px; }
-    footer { padding: 30px 20px; border-top:1px solid #eee; color:#666; max-width:900px; margin:0 auto; }
+    :root { --max: 980px; --pad: 22px; --border:#e8e8e8; --text:#111; --muted:#555; --bg:#fff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:var(--bg); line-height:1.55; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--border); position: sticky; top:0; background:rgba(255,255,255,.9); backdrop-filter:saturate(180%) blur(10px); }
+    .brand { font-weight:800; letter-spacing: .2px; }
+    .brand span { font-weight:700; color:#444; }
+    .nav a { text-decoration:none; color:#222; }
+    .navlinks a { margin-left:14px; font-size:14px; color:#333; }
+    .hero { padding: 54px 0 28px; }
+    .badge { display:inline-block; border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:13px; color:#333; }
+    h1 { font-size: 44px; margin: 14px 0 10px; line-height: 1.1; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 70ch; }
+    .cta { margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding: 12px 16px; border-radius: 12px; border:1px solid #111; text-decoration:none; font-weight:600; }
+    .btn.primary { background:#111; color:#fff; }
+    .btn.ghost { border-color: var(--border); }
+    .grid { display:grid; gap:14px; }
+    .grid.cols3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { border:1px solid var(--border); border-radius: 16px; padding: 16px; background:#fff; }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
+    section { padding: 34px 0; border-top:1px solid var(--border); }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+    .two { display:grid; grid-template-columns: 1.3fr .9fr; gap:18px; }
+    @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } h1{ font-size:38px; } }
+    .price { font-weight:800; font-size: 22px; margin-top: 10px; }
+    .pill { display:inline-block; font-size:12px; padding:4px 9px; border-radius:999px; border:1px solid var(--border); color:#333; margin-left: 8px; }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; color: var(--muted); }
+    .footer { padding: 26px 0 40px; border-top:1px solid var(--border); color: var(--muted); }
+    .kpi { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    .kpi .item { border:1px solid var(--border); border-radius: 14px; padding: 10px 12px; font-size: 13px; color:#333; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="badge">MODSecure • UK small business cyber checks</div>
-    <h1>Cyber security checks for small businesses</h1>
-    <p>We find what’s risky, explain it in plain English, and help you fix it — even if you don’t have an IT department.</p>
-    <div class="cta">
-      <a class="primary" href="mailto:you@example.com?subject=MODSecure%20enquiry">Book a free 15-min call</a>
-      <a href="#services">See what we do</a>
+
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">MODSecure <span>• Cyber checks</span></div>
+      <div class="navlinks">
+        <a href="#free">Free check</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
 
-  <section id="services">
-    <h2>Services</h2>
-    <div class="grid">
-      <div class="card"><strong>Cyber Health Check</strong><br/>Baseline review + clear action plan.</div>
-      <div class="card"><strong>Vulnerability Scan</strong><br/>External or internal scan with prioritised fixes.</div>
-      <div class="card"><strong>Microsoft 365 Security</strong><br/>MFA, secure sharing, account protection.</div>
-      <div class="card"><strong>Phishing & Awareness</strong><br/>Quick training + simple tests.</div>
+    <header class="hero">
+      <div class="badge">Helping UK small businesses improve cyber security — without jargon</div>
+      <h1>Free Cyber Health Check + clear report</h1>
+      <p class="lead">
+        If you don’t have an IT department, you’re not alone. MODSecure helps you spot the risks, fix the basics,
+        and get a simple, prioritised plan you can actually follow.
+      </p>
+
+      <div class="cta">
+        <!-- CHANGE THIS EMAIL -->
+        <a class="btn primary" href="mailto:you@example.com?subject=Free%20Cyber%20Health%20Check%20-%20Request">Request the free health check</a>
+        <a class="btn ghost" href="#pricing">See scan & report prices</a>
+      </div>
+
+      <div class="kpi">
+        <div class="item">✅ Plain-English reporting</div>
+        <div class="item">✅ Quick wins + next steps</div>
+        <div class="item">✅ Optional fix & retest support</div>
+      </div>
+    </header>
+
+    <section id="free">
+      <div class="two">
+        <div>
+          <h2>What’s included in the free Cyber Health Check</h2>
+          <p class="muted">
+            A fast, practical assessment to highlight obvious gaps and reduce your risk. Ideal if you’re not sure where to start.
+          </p>
+          <ul>
+            <li>15–20 minute call to understand your setup (devices, email, backups, remote access)</li>
+            <li>Checklist review of common controls (MFA, password policy, patching, backups, admin accounts)</li>
+            <li><strong>Free summary report</strong> (top risks + “next 10 actions”)</li>
+            <li>Optional quote for fixes or a full scan & report (no pressure)</li>
+          </ul>
+          <p class="small" style="margin-top:10px;">
+            You’ll get a short PDF-style write-up you can keep on file (useful for insurers and basic compliance).
+          </p>
+        </div>
+        <div class="card">
+          <h3>Deliverable</h3>
+          <p>Simple report with:</p>
+          <ul>
+            <li>Risk summary (High / Med / Low)</li>
+            <li>Top 10 actions ranked by impact</li>
+            <li>Quick wins you can do today</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <div class="grid cols3">
+        <div class="card">
+          <h3>Vulnerability Scan + Report</h3>
+          <p>External and/or internal scanning with a prioritised, plain-English report and recommended fixes.</p>
+        </div>
+        <div class="card">
+          <h3>Microsoft 365 Security Setup</h3>
+          <p>MFA, safer sign-in, account protection, secure sharing, and baseline policies.</p>
+        </div>
+        <div class="card">
+          <h3>Backup & Recovery Check</h3>
+          <p>Make sure backups exist, are restorable, and protected from ransomware.</p>
+        </div>
+        <div class="card">
+          <h3>Phishing & Awareness Starter</h3>
+          <p>Simple training + practical guidance to reduce clicks and improve reporting.</p>
+        </div>
+        <div class="card">
+          <h3>Fix Support + Retest</h3>
+          <p>We can help implement fixes, then retest to prove improvements.</p>
+        </div>
+        <div class="card">
+          <h3>Incident Readiness</h3>
+          <p>What to do if you’re hit: contacts, steps, and a basic response plan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Scan tools + reports (simple pricing)</h2>
+      <p class="muted">
+        Prices depend on number of devices and whether you want external, internal, or both.
+        Below are clear starting points for small businesses.
+      </p>
+
+      <div class="grid cols3" style="margin-top:14px;">
+        <div class="card">
+          <h3>Starter Scan <span class="pill">External</span></h3>
+          <p>Public-facing scan + report. Great for small sites and basic exposure checks.</p>
+          <div class="price">£149</div>
+          <ul>
+            <li>External scan of public IP / website exposure</li>
+            <li>Plain-English report (High/Med/Low)</li>
+            <li>Top 10 actions</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Standard Scan <span class="pill">Internal</span></h3>
+          <p>Internal scan on your network to find weak spots on laptops, PCs, and shared devices.</p>
+          <div class="price">£299</div>
+          <ul>
+            <li>Internal scan (up to ~10 devices)</li>
+            <li>Prioritised fixes + guidance</li>
+            <li>1 follow-up call to walk through results</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Complete <span class="pill">External + Internal</span></h3>
+          <p>Best value: full visibility + a tighter action plan.</p>
+          <div class="price">£499</div>
+          <ul>
+            <li>External + internal scan</li>
+            <li>Executive summary + technical appendix</li>
+            <li>Retest after fixes (one round)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>What scan tools do you use?</h3>
+        <p class="muted">
+          Industry-standard vulnerability scanning tools (where appropriate), combined with a human review.
+          The key difference is the output: you get a clear, prioritised report and practical next steps.
+        </p>
+        <p class="small">
+          Note: we only scan systems you explicitly authorise, and we avoid disruptive testing on live business-critical services.
+        </p>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        Want monthly support? Ongoing packages can include patching checks, account reviews, and quarterly rescans.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="two">
+        <div class="card">
+          <h3>Book the free health check</h3>
+          <p class="muted">Send a quick email and I’ll reply with a couple of time slots.</p>
+          <p style="margin:12px 0 0;">
+            <!-- CHANGE THESE -->
+            Email: <a href="mailto:you@example.com?subject=MODSecure%20enquiry">you@example.com</a><br/>
+            Phone/WhatsApp: <strong>+44 7xxx xxx xxx</strong>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Based in the UK</h3>
+          <p class="muted">Remote support available. On-site possible by arrangement.</p>
+          <p class="small" style="margin-top:10px;">
+            Disclaimer: MODSecure is an independent business and is not affiliated with or endorsed by the UK Ministry of Defence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="y"></span> MODSecure • Plain-English cyber security support for small businesses
     </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-    <p>Based in the UK • Remote support available</p>
-  </section>
-
-  <footer>
-    © <span id="y"></span> MODSecure. Plain-English cyber security support for small businesses.
-  </footer>
+  </div>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
