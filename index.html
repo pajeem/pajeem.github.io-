@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Senitel | Cyber Security for Small Businesses</title>
   <meta name="description" content="Is your business secure? Are you safe from data loss? Senitel provides cyber health checks and plain-English reports for small businesses." />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: "#1f3453",
+            "navy-dark": "#142845",
+            "soft-blue": "#f3f7ff",
+            muted: "#5f6f85"
+          }
+        }
+      }
+    };
+  </script>
   <style>
-    :root {
-      --senitel-navy: #1f3453;
-      --senitel-navy-dark: #142845;
-      --senitel-blue-50: #f3f7ff;
-      --senitel-blue-100: #e7effd;
-      --senitel-muted: #5f6f85;
-    }
-
     body {
       color: #0f1b2d;
       background:
@@ -24,262 +28,154 @@
         radial-gradient(900px 500px at 85% -20%, #eef3ff 0%, transparent 60%),
         #f7faff;
     }
-
-    .top-bar {
-      background: linear-gradient(90deg, #0f223b, var(--senitel-navy-dark));
-      color: #dce6f7;
-      font-size: .85rem;
-      letter-spacing: .02em;
-    }
-
-    .text-muted-custom { color: var(--senitel-muted) !important; }
-    .text-navy { color: var(--senitel-navy); }
-    .bg-soft { background-color: var(--senitel-blue-50); }
-
-    .btn-senitel {
-      background: linear-gradient(180deg, #2b4a73, var(--senitel-navy));
-      border-color: var(--senitel-navy);
-      color: #fff;
-    }
-
-    .btn-senitel:hover {
-      background: linear-gradient(180deg, #2d4f7c, #183050);
-      border-color: #183050;
-      color: #fff;
-    }
-
-    .hero-panel {
-      border: 1px solid #d5e0f1;
-      background: linear-gradient(170deg, #fff 0%, #f6f9ff 100%);
-    }
-
-    .stat-card {
-      background: var(--senitel-blue-50);
-      border: 1px solid #d6e2f4;
-    }
-
-    .section-title {
-      color: var(--senitel-navy-dark);
-      letter-spacing: -0.015em;
-    }
-
-    .price-featured {
-      border-color: #abc1e4 !important;
-      box-shadow: 0 0.75rem 1.5rem rgba(15, 27, 45, 0.08);
-    }
-
-    .contact-card {
-      border-left: 4px solid var(--senitel-navy);
-    }
   </style>
 </head>
-
-<body>
-  <div class="top-bar py-2 text-center fw-semibold">
+<body class="antialiased">
+  <div class="bg-gradient-to-r from-[#0f223b] to-[#142845] py-2 text-center text-sm font-semibold tracking-wide text-[#dce6f7]">
     Trusted by UK small businesses · Free first cyber health check
   </div>
 
-  <nav class="navbar navbar-expand-lg sticky-top bg-white bg-opacity-75 border-bottom" style="backdrop-filter: blur(8px);">
-    <div class="container py-2">
-      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
-        <img src="assets/logo.png" alt="Senitel logo" width="56" height="56" class="rounded-3 border bg-soft p-1">
+  <header class="sticky top-0 z-20 border-b border-slate-200/90 bg-white/80 backdrop-blur">
+    <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
+      <a class="flex items-center gap-3" href="#">
+        <img src="assets/logo.png" alt="Senitel logo" width="56" height="56" class="rounded-xl border border-slate-200 bg-soft-blue p-1" />
         <span>
-          <span class="d-block fw-bold text-lowercase text-navy" style="font-size:1.1rem;">Senitel</span>
-          <small class="text-uppercase text-muted-custom" style="letter-spacing:.08em;">Cyber Security</small>
+          <span class="block text-lg font-bold lowercase text-navy">Senitel</span>
+          <span class="text-xs uppercase tracking-[0.08em] text-muted">Cyber Security</span>
         </span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav ms-auto fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="#checks">What I check</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      <ul class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
+        <li><a class="hover:text-navy" href="#checks">What I check</a></li>
+        <li><a class="hover:text-navy" href="#experience">Experience</a></li>
+        <li><a class="hover:text-navy" href="#pricing">Pricing</a></li>
+        <li><a class="hover:text-navy" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <main class="container py-4 py-lg-5">
-    <section class="row g-4 align-items-start mb-4 mb-lg-5">
-      <div class="col-lg-8">
-        <div class="card hero-panel shadow-sm h-100">
-          <div class="card-body p-4 p-lg-5">
-            <span class="badge text-bg-light border text-muted-custom mb-3 px-3 py-2">Free cyber health check · Plain-English results</span>
-            <h1 class="display-5 fw-bold section-title mb-3">Is your business secure?</h1>
-            <p class="lead text-muted-custom">
-              Would you know if you’d been breached — and are you safe from a data loss? If you’re not sure, I can check this for you and give you clear, practical next steps.
-            </p>
+  <main class="mx-auto w-full max-w-6xl px-4 py-6 lg:px-6 lg:py-10">
+    <section class="mb-8 grid gap-4 lg:mb-10 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <div class="h-full rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-[#f6f9ff] p-6 shadow-sm lg:p-8">
+          <span class="mb-3 inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-muted">Free cyber health check · Plain-English results</span>
+          <h1 class="mb-3 text-4xl font-bold tracking-tight text-navy-dark">Is your business secure?</h1>
+          <p class="mb-4 text-lg text-muted">Would you know if you’d been breached — and are you safe from a data loss? If you’re not sure, I can check this for you and give you clear, practical next steps.</p>
 
-            <div class="d-flex flex-wrap gap-2 mb-3">
-              <a class="btn btn-senitel btn-lg" href="#contact">Book the free check</a>
-              <a class="btn btn-outline-secondary btn-lg" href="#checks">See what I check</a>
+          <div class="mb-4 flex flex-wrap gap-2">
+            <a href="#contact" class="rounded-lg bg-gradient-to-b from-[#2b4a73] to-[#1f3453] px-5 py-3 font-semibold text-white shadow hover:from-[#2d4f7c] hover:to-[#183050]">Book the free check</a>
+            <a href="#checks" class="rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">See what I check</a>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 bg-soft-blue p-4 text-muted">
+            <strong class="text-navy">No jargon. No scare tactics.</strong><br />
+            Just a sensible baseline: what’s exposed, what’s most likely to go wrong, and what to fix first.
+          </div>
+
+          <div class="mt-4 grid gap-3 md:grid-cols-3" aria-label="Trust indicators">
+            <div class="rounded-xl border border-[#d6e2f4] bg-soft-blue p-3">
+              <div class="text-2xl font-bold text-navy">20+ years</div>
+              <small class="font-semibold text-muted">Security engineering experience</small>
             </div>
-
-            <div class="alert bg-soft border text-muted-custom" role="note">
-              <strong class="text-navy">No jargon. No scare tactics.</strong><br>
-              Just a sensible baseline: what’s exposed, what’s most likely to go wrong, and what to fix first.
+            <div class="rounded-xl border border-[#d6e2f4] bg-soft-blue p-3">
+              <div class="text-2xl font-bold text-navy">24h</div>
+              <small class="font-semibold text-muted">Typical first response time</small>
             </div>
-
-            <div class="row g-3 mt-1" aria-label="Trust indicators">
-              <div class="col-md-4">
-                <div class="stat-card rounded-3 p-3 h-100">
-                  <div class="h4 fw-bold text-navy mb-1">20+ years</div>
-                  <small class="text-muted-custom fw-semibold">Security engineering experience</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="stat-card rounded-3 p-3 h-100">
-                  <div class="h4 fw-bold text-navy mb-1">24h</div>
-                  <small class="text-muted-custom fw-semibold">Typical first response time</small>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="stat-card rounded-3 p-3 h-100">
-                  <div class="h4 fw-bold text-navy mb-1">Plain English</div>
-                  <small class="text-muted-custom fw-semibold">Actionable report, no jargon</small>
-                </div>
-              </div>
+            <div class="rounded-xl border border-[#d6e2f4] bg-soft-blue p-3">
+              <div class="text-2xl font-bold text-navy">Plain English</div>
+              <small class="font-semibold text-muted">Clear and actionable advice</small>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body p-4">
-            <h2 class="h5 fw-bold section-title">What you’ll get</h2>
-            <ul class="text-muted-custom ps-3 mb-0">
-              <li class="mb-2">Quick discovery + risk snapshot</li>
-              <li class="mb-2">Vulnerability scanning to spot weaknesses attackers look for</li>
-              <li class="mb-2">Internet-facing exposure checks</li>
-              <li class="mb-2">Internal/On-site exposure checks</li>
-              <li class="mb-2">Backup & recovery sanity check</li>
-              <li>Prioritised action list (top fixes first)</li>
-            </ul>
-            <p class="text-muted-custom small mt-3 mb-0">Ideal for small businesses without an IT department.</p>
-          </div>
+      <div class="lg:col-span-4">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 class="mb-2 text-xl font-bold tracking-tight text-navy-dark">Why this matters</h2>
+          <p class="text-muted">Most attacks aren’t advanced — they exploit missing basics. A short review can remove major risk quickly, ideal for small businesses without an IT department.</p>
         </div>
       </div>
     </section>
 
-    <section id="checks" class="mb-5">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
-        <h2 class="h3 section-title mb-0">What I check</h2>
-        <p class="text-muted-custom mb-0 small">Focused on the stuff that actually reduces risk.</p>
+    <section id="checks" class="mb-10">
+      <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+        <h2 class="text-2xl font-bold tracking-tight text-navy-dark">What I check</h2>
+        <p class="text-sm text-muted">Focused on the stuff that actually reduces risk.</p>
       </div>
-
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Accounts & access</h3><p class="mb-0 text-muted-custom">Passwords, MFA, shared accounts, admin rights, and who has access to what.</p></div></div></div>
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Email security</h3><p class="mb-0 text-muted-custom">Phishing exposure, mailbox protection basics, and account takeover risk.</p></div></div></div>
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Backups & recovery</h3><p class="mb-0 text-muted-custom">Are backups running, protected, and can you actually restore if you lose data?</p></div></div></div>
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Vulnerability scanning</h3><p class="mb-0 text-muted-custom">I run a vulnerability scanning tool to identify weaknesses hackers commonly exploit. Scans come in different levels — pay more for a deeper, more extensive scan and report.</p></div></div></div>
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Device basics</h3><p class="mb-0 text-muted-custom">Updates, endpoint protection, disk encryption, and simple hardening wins.</p></div></div></div>
-        <div class="col-md-6 col-lg-4"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h6 fw-bold section-title">Action plan</h3><p class="mb-0 text-muted-custom">A prioritised list of fixes you can do yourself (or I can help you implement).</p></div></div></div>
+      <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Accounts & access</h3><p class="text-muted">Passwords, MFA, shared accounts, admin rights, and who has access to what.</p></div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Email security</h3><p class="text-muted">Phishing exposure, mailbox protection basics, and account takeover risk.</p></div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Backups & recovery</h3><p class="text-muted">Are backups running, protected, and can you actually restore if you lose data?</p></div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Vulnerability scanning</h3><p class="text-muted">I run a vulnerability scanning tool to identify weaknesses hackers commonly exploit. Scans come in different levels — pay more for a deeper, more extensive scan and report.</p></div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Device basics</h3><p class="text-muted">Updates, endpoint protection, disk encryption, and simple hardening wins.</p></div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Action plan</h3><p class="text-muted">A prioritised list of fixes you can do yourself (or I can help you implement).</p></div>
       </div>
-
-      <div class="card shadow-sm mt-3">
-        <div class="card-body">
-          <h3 class="h6 fw-bold section-title">Scan levels</h3>
-          <p class="mb-0 text-muted-custom">Not every business needs the same depth. I offer different scan levels — from a quick baseline scan to more extensive scanning and reporting. You only pay for the depth you need.</p>
-        </div>
+      <div class="mt-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h3 class="mb-1 text-sm font-bold text-navy-dark">Scan levels</h3>
+        <p class="text-muted">Not every business needs the same depth. I offer different scan levels — from a quick baseline scan to more extensive scanning and reporting. You only pay for the depth you need.</p>
       </div>
     </section>
 
-    <section id="experience" class="mb-5">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
-        <h2 class="h3 section-title mb-0">Experience you can trust</h2>
-        <p class="text-muted-custom mb-0 small">High-assurance mindset, simplified for small business.</p>
+    <section id="experience" class="mb-10">
+      <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+        <h2 class="text-2xl font-bold tracking-tight text-navy-dark">Experience you can trust</h2>
+        <p class="text-sm text-muted">High-assurance mindset, simplified for small business.</p>
       </div>
-      <div class="card shadow-sm">
-        <div class="card-body p-4">
-          <p class="mb-0 text-muted-custom">
-            I have <strong class="text-navy">20 years’ experience</strong> securing and engineering systems in high-assurance environments, including work on <strong class="text-navy">MOD, military, nuclear,</strong> and <strong class="text-navy">government</strong> systems.
-            <br><br>
-            The difference here: you get that disciplined approach, but explained simply — with practical steps that fit a small business.
-          </p>
-        </div>
+      <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm text-muted">
+        I have <strong class="text-navy">20 years’ experience</strong> securing and engineering systems in high-assurance environments, including work on <strong class="text-navy">MOD, military, nuclear,</strong> and <strong class="text-navy">government</strong> systems.
+        <br /><br />
+        The difference here: you get that disciplined approach, but explained simply — with practical steps that fit a small business.
       </div>
     </section>
 
-    <section id="pricing" class="mb-5">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
-        <h2 class="h3 section-title mb-0">Pricing</h2>
-        <p class="text-muted-custom mb-0 small">Simple packages — update values when ready.</p>
+    <section id="pricing" class="mb-10">
+      <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+        <h2 class="text-2xl font-bold tracking-tight text-navy-dark">Pricing</h2>
+        <p class="text-sm text-muted">Simple packages — update values when ready.</p>
       </div>
-      <div class="row g-3">
-        <div class="col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h5 section-title">Starter</h3>
-              <p class="display-6 fw-bold text-navy">£250</p>
-              <p class="small text-muted-custom">One-off</p>
-              <ul class="text-muted-custom ps-3 mb-0">
-                <li>Light vulnerability scan (internet-facing)</li>
-                <li>Short report</li>
-                <li>Top priority fixes</li>
-              </ul>
-            </div>
-          </div>
+      <div class="grid gap-3 lg:grid-cols-3">
+        <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-semibold text-navy-dark">Starter</h3>
+          <p class="text-4xl font-bold text-navy">£250</p>
+          <p class="mb-2 text-sm text-muted">One-off</p>
+          <ul class="list-disc space-y-1 pl-5 text-muted"><li>Light vulnerability scan (internet-facing)</li><li>Short report</li><li>Top priority fixes</li></ul>
         </div>
-        <div class="col-lg-4">
-          <div class="card h-100 shadow-sm price-featured border-2">
-            <div class="card-body position-relative">
-              <span class="badge rounded-pill text-bg-primary position-absolute top-0 end-0 mt-3 me-3">Most popular</span>
-              <h3 class="h5 section-title">Standard</h3>
-              <p class="display-6 fw-bold text-navy">£400</p>
-              <p class="small text-muted-custom">One-off</p>
-              <ul class="text-muted-custom ps-3 mb-0">
-                <li>Standard vulnerability scan (broader coverage)</li>
-                <li>Plain-English report with evidence</li>
-                <li>Hardening checklist</li>
-              </ul>
-            </div>
-          </div>
+        <div class="rounded-xl border-2 border-[#abc1e4] bg-white p-5 shadow-lg shadow-slate-900/5">
+          <span class="mb-2 inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">Most popular</span>
+          <h3 class="text-xl font-semibold text-navy-dark">Standard</h3>
+          <p class="text-4xl font-bold text-navy">£400</p>
+          <p class="mb-2 text-sm text-muted">One-off</p>
+          <ul class="list-disc space-y-1 pl-5 text-muted"><li>Standard vulnerability scan (broader coverage)</li><li>Plain-English report with evidence</li><li>Hardening checklist</li></ul>
         </div>
-        <div class="col-lg-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h5 section-title">Plus</h3>
-              <p class="display-6 fw-bold text-navy">£50 / mo</p>
-              <p class="small text-muted-custom">Ongoing</p>
-              <ul class="text-muted-custom ps-3 mb-0">
-                <li>Deeper scan options + monthly checks</li>
-                <li>Support & guidance</li>
-                <li>Ongoing improvements</li>
-              </ul>
-            </div>
-          </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h3 class="text-xl font-semibold text-navy-dark">Plus</h3>
+          <p class="text-4xl font-bold text-navy">£50 / mo</p>
+          <p class="mb-2 text-sm text-muted">Ongoing</p>
+          <ul class="list-disc space-y-1 pl-5 text-muted"><li>Deeper scan options + monthly checks</li><li>Support & guidance</li><li>Ongoing improvements</li></ul>
         </div>
       </div>
     </section>
 
     <section id="contact" class="mb-4">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
-        <h2 class="h3 section-title mb-0">Book your free check</h2>
-        <p class="text-muted-custom mb-0 small">Tell me your business type and staff count.</p>
+      <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
+        <h2 class="text-2xl font-bold tracking-tight text-navy-dark">Book your free check</h2>
+        <p class="text-sm text-muted">Tell me your business type and staff count.</p>
       </div>
-      <div class="card shadow-sm contact-card">
-        <div class="card-body p-4">
-          <p class="mb-3 text-muted-custom">
-            Email: <a href="mailto:paul@senitel.com">paul@senitel.com</a><br>
-            Phone: <a href="tel:+447000000000">+44 7000 000000</a>
-          </p>
-          <div class="alert bg-soft border mb-0 text-muted-custom">
-            <strong class="text-navy">Tip:</strong> If you want enquiries without publishing your phone number, I can add a simple contact form that emails you.
-          </div>
+      <div class="rounded-xl border border-slate-200 border-l-4 border-l-navy bg-white p-6 shadow-sm">
+        <p class="mb-3 text-muted">
+          Email: <a class="text-navy underline" href="mailto:paul@senitel.com">paul@senitel.com</a><br />
+          Phone: <a class="text-navy underline" href="tel:+447000000000">+44 7000 000000</a>
+        </p>
+        <div class="rounded-lg border border-slate-200 bg-soft-blue p-3 text-muted">
+          <strong class="text-navy">Tip:</strong> If you want enquiries without publishing your phone number, I can add a simple contact form that emails you.
         </div>
       </div>
     </section>
 
-    <footer class="pt-4 border-top text-muted-custom small">
+    <footer class="border-t border-slate-200 pt-4 text-sm text-muted">
       © <span id="year"></span> Senitel. All rights reserved.
     </footer>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
