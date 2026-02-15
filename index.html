@@ -5,28 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Senitel | Cyber Security for Small Businesses</title>
   <meta name="description" content="Is your business secure? Are you safe from data loss? Senitel provides cyber health checks and plain-English reports for small businesses." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: "#1f3453",
-            "navy-dark": "#142845",
-            "soft-blue": "#f3f7ff",
-            muted: "#5f6f85"
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
   <style>
     body {
+      font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: #0f1b2d;
       background:
         radial-gradient(1200px 500px at 10% -10%, #e8f1ff 0%, transparent 65%),
         radial-gradient(900px 500px at 85% -20%, #eef3ff 0%, transparent 60%),
         #f7faff;
+      line-height: 1.6;
+    }
+
+    .card {
+      border-color: #d8e3f4;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .navbar {
+      border-color: #dce6f6 !important;
+    }
+
+    .top-bar {
+      background: linear-gradient(90deg, #0f223b, var(--senitel-navy-dark));
+      color: #dce6f7;
+      font-size: .85rem;
+      letter-spacing: .02em;
+    }
+
+    .text-muted-custom { color: var(--senitel-muted) !important; }
+    .text-navy { color: var(--senitel-navy); }
+    .bg-soft { background-color: var(--senitel-blue-50); }
+
+    .btn-senitel {
+      background: linear-gradient(180deg, #2b4a73, var(--senitel-navy));
+      border-color: var(--senitel-navy);
+      color: #fff;
+    }
+
+    .btn-senitel:hover {
+      background: linear-gradient(180deg, #2d4f7c, #183050);
+      border-color: #183050;
+      color: #fff;
+    }
+
+    .hero-panel {
+      border: 1px solid #d5e0f1;
+      background: linear-gradient(170deg, #fff 0%, #f6f9ff 100%);
+    }
+
+    .stat-card {
+      background: var(--senitel-blue-50);
+      border: 1px solid #d6e2f4;
+    }
+
+    .section-title {
+      color: var(--senitel-navy-dark);
+      letter-spacing: -0.015em;
+      font-weight: 700;
+    }
+
+    .price-featured {
+      border-color: #abc1e4 !important;
+      box-shadow: 0 0.75rem 1.5rem rgba(15, 27, 45, 0.08);
+    }
+
+    .contact-card {
+      border-left: 4px solid var(--senitel-navy);
     }
   </style>
 </head>
@@ -35,46 +85,42 @@
     Trusted by UK small businesses · Free first cyber health check
   </div>
 
-  <header class="sticky top-0 z-20 border-b border-slate-200/90 bg-white/80 backdrop-blur">
-    <nav class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 lg:px-6">
-      <a class="flex items-center gap-3" href="#">
-        <img src="assets/logo.png" alt="Senitel logo" width="56" height="56" class="rounded-xl border border-slate-200 bg-soft-blue p-1" />
+  <nav class="navbar navbar-expand-lg sticky-top bg-white bg-opacity-75 border-bottom" style="backdrop-filter: blur(8px);">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
         <span>
-          <span class="block text-lg font-bold lowercase text-navy">Senitel</span>
-          <span class="text-xs uppercase tracking-[0.08em] text-muted">Cyber Security</span>
+          <span class="d-block fw-bold text-uppercase text-navy" style="font-size:1.1rem;">Senitel</span>
+          <small class="text-uppercase text-muted-custom" style="letter-spacing:.08em;">Cyber Security</small>
         </span>
       </a>
-      <ul class="hidden items-center gap-6 text-sm font-semibold text-slate-700 md:flex">
-        <li><a class="hover:text-navy" href="#checks">What I check</a></li>
-        <li><a class="hover:text-navy" href="#experience">Experience</a></li>
-        <li><a class="hover:text-navy" href="#pricing">Pricing</a></li>
-        <li><a class="hover:text-navy" href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="#checks">Scope of Checks</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <main class="mx-auto w-full max-w-6xl px-4 py-6 lg:px-6 lg:py-10">
-    <section class="mb-8 grid gap-4 lg:mb-10 lg:grid-cols-12">
-      <div class="lg:col-span-8">
-        <div class="h-full rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-[#f6f9ff] p-6 shadow-sm lg:p-8">
-          <span class="mb-3 inline-block rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-muted">Free cyber health check · Plain-English results</span>
-          <h1 class="mb-3 text-4xl font-bold tracking-tight text-navy-dark">Is your business secure?</h1>
-          <p class="mb-4 text-lg text-muted">Would you know if you’d been breached — and are you safe from a data loss? If you’re not sure, I can check this for you and give you clear, practical next steps.</p>
+  <main class="container py-4 py-lg-5">
+    <section class="row g-4 align-items-start mb-4 mb-lg-5">
+      <div class="col-lg-8">
+        <div class="card hero-panel shadow-sm h-100">
+          <div class="card-body p-4 p-lg-5">
+            <span class="badge text-bg-light border text-muted-custom mb-3 px-3 py-2">Free cyber health check · Plain-English results</span>
+            <h1 class="display-5 fw-bold section-title mb-3">Business Security Status</h1>
+            <p class="lead text-muted-custom">
+              Has yout business been breached? — and are you safe from a data loss? If you’re not sure, I can check this for you and give you clear, practical next steps.
+            </p>
 
-          <div class="mb-4 flex flex-wrap gap-2">
-            <a href="#contact" class="rounded-lg bg-gradient-to-b from-[#2b4a73] to-[#1f3453] px-5 py-3 font-semibold text-white shadow hover:from-[#2d4f7c] hover:to-[#183050]">Book the free check</a>
-            <a href="#checks" class="rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">See what I check</a>
-          </div>
-
-          <div class="rounded-xl border border-slate-200 bg-soft-blue p-4 text-muted">
-            <strong class="text-navy">No jargon. No scare tactics.</strong><br />
-            Just a sensible baseline: what’s exposed, what’s most likely to go wrong, and what to fix first.
-          </div>
-
-          <div class="mt-4 grid gap-3 md:grid-cols-3" aria-label="Trust indicators">
-            <div class="rounded-xl border border-[#d6e2f4] bg-soft-blue p-3">
-              <div class="text-2xl font-bold text-navy">20+ years</div>
-              <small class="font-semibold text-muted">Security engineering experience</small>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <a class="btn btn-senitel btn-lg" href="#contact">Book the free check</a>
+              <a class="btn btn-outline-secondary btn-lg" href="#checks">See scope of checks</a>
             </div>
             <div class="rounded-xl border border-[#d6e2f4] bg-soft-blue p-3">
               <div class="text-2xl font-bold text-navy">24h</div>
@@ -96,10 +142,10 @@
       </div>
     </section>
 
-    <section id="checks" class="mb-10">
-      <div class="mb-3 flex flex-wrap items-end justify-between gap-2">
-        <h2 class="text-2xl font-bold tracking-tight text-navy-dark">What I check</h2>
-        <p class="text-sm text-muted">Focused on the stuff that actually reduces risk.</p>
+    <section id="checks" class="mb-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+        <h2 class="h3 section-title mb-0">Scope of checks</h2>
+        <p class="text-muted-custom mb-0 small">Focused on the stuff that actually reduces risk.</p>
       </div>
       <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"><h3 class="mb-1 text-sm font-bold text-navy-dark">Accounts & access</h3><p class="text-muted">Passwords, MFA, shared accounts, admin rights, and who has access to what.</p></div>
