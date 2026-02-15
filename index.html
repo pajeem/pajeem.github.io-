@@ -8,25 +8,42 @@
 
   <style>
     :root{
-      /* Based on your clean logo palette */
       --navy: #1f3453;
       --navy-dark: #142845;
-      --grey: #66758a;
-      --grey-light: #edf1f6;
+      --navy-deep: #0f223b;
+      --sky: #4c78b6;
+      --grey: #5f6f85;
+      --grey-light: #eef3f9;
       --border: #dbe3ee;
       --text: #0f1b2d;
-      --bg: #ffffff;
-      --shadow: 0 12px 32px rgba(15,27,45,.10);
+      --bg: #f7faff;
+      --white: #ffffff;
+      --shadow: 0 18px 42px rgba(15,27,45,.09);
+      --shadow-soft: 0 10px 24px rgba(15,27,45,.06);
       --radius: 16px;
     }
 
     *{ box-sizing: border-box; }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
-      background: var(--bg);
+      background:
+        radial-gradient(1200px 500px at 10% -10%, #e8f1ff 0%, transparent 65%),
+        radial-gradient(900px 500px at 85% -20%, #eef3ff 0%, transparent 60%),
+        var(--bg);
       line-height: 1.55;
+    }
+
+    .topBar{
+      background: linear-gradient(90deg, var(--navy-deep), var(--navy-dark));
+      color: #dce6f7;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      letter-spacing: .2px;
     }
 
     a{ color: var(--navy); text-decoration: none; }
@@ -35,11 +52,15 @@
     .container{
       max-width: 1120px;
       margin: 0 auto;
-      padding: 22px;
+      padding: 24px;
     }
 
-    /* Header */
     header{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 250, 255, 0.86);
+      backdrop-filter: blur(7px);
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -55,10 +76,9 @@
       min-width: 240px;
     }
 
-    /* Responsive logo sizing */
     .logo{
-      width: clamp(144px, 6vw, 74px);
-      height: clamp(144px, 6vw, 74px);
+      width: clamp(56px, 8vw, 74px);
+      height: clamp(56px, 8vw, 74px);
       object-fit: contain;
       display:block;
     }
@@ -70,16 +90,16 @@
     }
 
     .brandTitle strong{
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: .2px;
       color: var(--navy-dark);
       text-transform: lowercase;
     }
 
     .brandTitle span{
-      font-size: 13px;
+      font-size: 12px;
       color: var(--grey);
-      letter-spacing: .6px;
+      letter-spacing: .8px;
       text-transform: uppercase;
     }
 
@@ -93,24 +113,29 @@
     nav a{
       color: var(--grey);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
     }
 
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
       gap: 16px;
-      margin-top: 18px;
+      margin-top: 22px;
       align-items: start;
     }
 
     .card{
-      background: #fff;
+      background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 20px;
+    }
+
+    .heroMain{
+      background: linear-gradient(170deg, #ffffff 0%, #f6f9ff 100%);
+      border-color: #d5e0f1;
       box-shadow: var(--shadow);
-      padding: 18px;
     }
 
     .badge{
@@ -122,37 +147,38 @@
       border: 1px solid var(--border);
       background: var(--grey-light);
       border-radius: 999px;
-      padding: 8px 10px;
-      font-weight: 650;
+      padding: 8px 12px;
+      font-weight: 700;
     }
 
     h1{
-      margin: 14px 0 10px;
-      font-size: clamp(28px, 4.2vw, 46px);
-      line-height: 1.12;
+      margin: 16px 0 10px;
+      font-size: clamp(30px, 4.2vw, 50px);
+      line-height: 1.1;
       letter-spacing: -0.8px;
       color: var(--navy-dark);
+      max-width: 18ch;
     }
 
     .lead{
       margin: 0 0 14px;
       color: var(--grey);
-      font-size: 16px;
-      max-width: 66ch;
+      font-size: 17px;
+      max-width: 62ch;
     }
 
     .ctaRow{
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding: 12px 14px;
+      padding: 12px 15px;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: #fff;
@@ -160,21 +186,22 @@
       font-weight: 750;
       font-size: 14px;
       min-height: 44px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn:hover{
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(15,27,45,.08);
     }
 
     .btn.primary{
       border: 1px solid var(--navy);
-      background: var(--navy);
+      background: linear-gradient(180deg, #2b4a73, #1f3453);
       color: #fff;
     }
 
-    .btn.primary:hover{
-      text-decoration: none;
-      background: var(--navy-dark);
-      border-color: var(--navy-dark);
-    }
-
-    .btn:hover{ text-decoration: none; }
+    .btn.primary:hover{ background: linear-gradient(180deg, #2d4f7c, #183050); }
 
     .list{
       margin: 10px 0 0;
@@ -182,6 +209,8 @@
       color: var(--grey);
       font-size: 14px;
     }
+
+    .list li{ margin-bottom: 6px; }
 
     .callout{
       margin-top: 14px;
@@ -193,10 +222,7 @@
       font-size: 14px;
     }
 
-    /* Sections */
-    .section{
-      margin-top: 22px;
-    }
+    .section{ margin-top: 26px; }
 
     .sectionTitle{
       display:flex;
@@ -208,7 +234,7 @@
 
     .sectionTitle h2{
       margin:0;
-      font-size: 18px;
+      font-size: 20px;
       color: var(--navy-dark);
       letter-spacing: .2px;
     }
@@ -219,7 +245,8 @@
       font-size: 13px;
     }
 
-    .grid3{
+    .grid3,
+    .pricing{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
@@ -237,49 +264,94 @@
       font-size: 14px;
     }
 
-    /* Pricing */
-    .pricing{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    .price{
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price.featured{
+      border-color: #abc1e4;
+      box-shadow: var(--shadow);
+    }
+
+    .pill{
+      position:absolute;
+      top:12px;
+      right:12px;
+      background:#e7effd;
+      border:1px solid #c5d7f4;
+      color:#355b91;
+      font-size:12px;
+      font-weight:700;
+      border-radius:999px;
+      padding:4px 9px;
     }
 
     .price .amount{
-      font-size: 28px;
+      font-size: 30px;
       margin: 10px 0 6px;
-      letter-spacing: -0.6px;
+      letter-spacing: -0.8px;
       color: var(--navy-dark);
     }
 
-    .muted{
-      color: var(--grey);
-      font-size: 13px;
-      margin: 0;
-    }
+    .muted{ color: var(--grey); font-size: 13px; margin: 0; }
 
     footer{
-      padding: 28px 0 10px;
+      padding: 30px 0 14px;
       color: var(--grey);
       font-size: 13px;
       border-top: 1px solid var(--border);
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
-    /* Mobile */
     @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
-      .grid3{ grid-template-columns: 1fr; }
+      .hero,
+      .grid3,
       .pricing{ grid-template-columns: 1fr; }
       nav{ justify-content:flex-start; }
+      .sectionTitle{ flex-direction: column; align-items:flex-start; }
+      h1{ max-width: 100%; }
+    }
+
+    .stats{
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .stat{
+      border: 1px solid #d6e2f4;
+      background: #f6f9ff;
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .stat strong{
+      display: block;
+      color: var(--navy-dark);
+      font-size: 20px;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .stat span{
+      font-size: 12px;
+      color: var(--grey);
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px){
+      .stats{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
+  <div class="topBar">Trusted by UK small businesses · Free first cyber health check</div>
   <div class="container">
     <header>
       <div class="brand">
-        <!-- Put your logo at: assets/logo.png -->
         <img class="logo" src="assets/logo.png" alt="senitel logo" />
         <div class="brandTitle">
           <strong>Senitel</strong>
@@ -295,9 +367,8 @@
       </nav>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
-      <div class="card">
+      <div class="card heroMain">
         <div class="badge">Free cyber health check · Plain-English results</div>
         <h1>Is your business secure?</h1>
         <p class="lead">
@@ -313,6 +384,21 @@
         <div class="callout">
           <strong style="color:var(--navy-dark);">No jargon. No scare tactics.</strong><br />
           Just a sensible baseline: what’s exposed, what’s most likely to go wrong, and what to fix first.
+        </div>
+
+        <div class="stats" aria-label="Trust indicators">
+          <div class="stat">
+            <strong>20+ years</strong>
+            <span>Security engineering experience</span>
+          </div>
+          <div class="stat">
+            <strong>24h</strong>
+            <span>Typical first response time</span>
+          </div>
+          <div class="stat">
+            <strong>Plain English</strong>
+            <span>Actionable report, no jargon</span>
+          </div>
         </div>
       </div>
 
@@ -332,7 +418,6 @@
       </div>
     </section>
 
-    <!-- WHAT I CHECK -->
     <section id="checks" class="section">
       <div class="sectionTitle">
         <h2>What I check</h2>
@@ -373,6 +458,7 @@
           <p>A prioritised list of fixes you can do yourself (or I can help you implement).</p>
         </div>
       </div>
+
       <div class="card" style="margin-top:14px;">
         <h3 style="margin:0 0 8px; color:var(--navy-dark);">Scan levels</h3>
         <p style="margin:0; color:var(--grey); font-size:14px;">
@@ -380,10 +466,8 @@
           to more extensive scanning and reporting. You only pay for the depth you need.
         </p>
       </div>
-      
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <div class="sectionTitle">
         <h2>Experience you can trust</h2>
@@ -401,7 +485,6 @@
       </div>
     </section>
 
-    <!-- PRICING -->
     <section id="pricing" class="section">
       <div class="sectionTitle">
         <h2>Pricing</h2>
@@ -420,7 +503,8 @@
           </ul>
         </div>
 
-        <div class="card price">
+        <div class="card price featured">
+          <span class="pill">Most popular</span>
           <h3 style="margin:0; color:var(--navy-dark);">Standard</h3>
           <div class="amount">£400</div>
           <p class="muted">One-off</p>
@@ -444,7 +528,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section">
       <div class="sectionTitle">
         <h2>Book your free check</h2>
@@ -453,7 +536,7 @@
 
       <div class="card">
         <p style="margin:0; color:var(--grey);">
-          Email: <a href="mailto:paul.curran"icloud.com">paul@senitel.com</a><br />
+          Email: <a href="mailto:paul@senitel.com">paul@senitel.com</a><br />
           Phone: <a href="tel:+447000000000">+44 7000 000000</a>
         </p>
         <div class="callout" style="margin-top:14px;">
