@@ -3,224 +3,473 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Senetal | Cyber Security for Small Businesses</title>
-  <meta name="description" content="Free Cyber Health Check + clear report. Vulnerability scanning and practical fixes for small businesses — no IT department needed." />
+  <title>Senitel | Cyber Security for Small Businesses</title>
+  <meta name="description" content="Is your business secure? Are you safe from data loss? Senitel provides cyber health checks and plain-English reports for small businesses." />
+
   <style>
-    :root { --max: 980px; --pad: 22px; --border:#e8e8e8; --text:#111; --muted:#555; --bg:#fff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:var(--bg); line-height:1.55; }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
-    .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--border); position: sticky; top:0; background:rgba(255,255,255,.9); backdrop-filter:saturate(180%) blur(10px); }
-    .brand { font-weight:800; letter-spacing: .2px; }
-    .brand span { font-weight:700; color:#444; }
-    .nav a { text-decoration:none; color:#222; }
-    .navlinks a { margin-left:14px; font-size:14px; color:#333; }
-    .hero { padding: 54px 0 28px; }
-    .badge { display:inline-block; border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:13px; color:#333; }
-    h1 { font-size: 44px; margin: 14px 0 10px; line-height: 1.1; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 70ch; }
-    .cta { margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn { display:inline-block; padding: 12px 16px; border-radius: 12px; border:1px solid #111; text-decoration:none; font-weight:600; }
-    .btn.primary { background:#111; color:#fff; }
-    .btn.ghost { border-color: var(--border); }
-    .grid { display:grid; gap:14px; }
-    .grid.cols3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .card { border:1px solid var(--border); border-radius: 16px; padding: 16px; background:#fff; }
-    .card h3 { margin: 0 0 6px; font-size: 16px; }
-    .card p { margin: 0; color: var(--muted); font-size: 14.5px; }
-    section { padding: 34px 0; border-top:1px solid var(--border); }
-    h2 { margin: 0 0 12px; font-size: 22px; }
-    ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
-    .two { display:grid; grid-template-columns: 1.3fr .9fr; gap:18px; }
-    @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } h1{ font-size:38px; } }
-    .price { font-weight:800; font-size: 22px; margin-top: 10px; }
-    .pill { display:inline-block; font-size:12px; padding:4px 9px; border-radius:999px; border:1px solid var(--border); color:#333; margin-left: 8px; }
-    .muted { color: var(--muted); }
-    .small { font-size: 13px; color: var(--muted); }
-    .footer { padding: 26px 0 40px; border-top:1px solid var(--border); color: var(--muted); }
-    .kpi { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
-    .kpi .item { border:1px solid var(--border); border-radius: 14px; padding: 10px 12px; font-size: 13px; color:#333; }
+    :root{
+      /* Based on your clean logo palette */
+      --navy: #1f3453;
+      --navy-dark: #142845;
+      --grey: #66758a;
+      --grey-light: #edf1f6;
+      --border: #dbe3ee;
+      --text: #0f1b2d;
+      --bg: #ffffff;
+      --shadow: 0 12px 32px rgba(15,27,45,.10);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--navy); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .container{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    /* Header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      padding: 10px 0 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      min-width: 240px;
+    }
+
+    /* Responsive logo sizing */
+    .logo{
+      width: clamp(144px, 6vw, 74px);
+      height: clamp(144px, 6vw, 74px);
+      object-fit: contain;
+      display:block;
+    }
+
+    .brandTitle{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+    }
+
+    .brandTitle strong{
+      font-size: 16px;
+      letter-spacing: .2px;
+      color: var(--navy-dark);
+      text-transform: lowercase;
+    }
+
+    .brandTitle span{
+      font-size: 13px;
+      color: var(--grey);
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    nav{
+      display:flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+
+    nav a{
+      color: var(--grey);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 16px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--grey);
+      border: 1px solid var(--border);
+      background: var(--grey-light);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-weight: 650;
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 4.2vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+      color: var(--navy-dark);
+    }
+
+    .lead{
+      margin: 0 0 14px;
+      color: var(--grey);
+      font-size: 16px;
+      max-width: 66ch;
+    }
+
+    .ctaRow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--navy-dark);
+      font-weight: 750;
+      font-size: 14px;
+      min-height: 44px;
+    }
+
+    .btn.primary{
+      border: 1px solid var(--navy);
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .btn.primary:hover{
+      text-decoration: none;
+      background: var(--navy-dark);
+      border-color: var(--navy-dark);
+    }
+
+    .btn:hover{ text-decoration: none; }
+
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--grey);
+      font-size: 14px;
+    }
+
+    .callout{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--grey-light);
+      border: 1px solid var(--border);
+      color: var(--grey);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 22px;
+    }
+
+    .sectionTitle{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin: 18px 0 10px;
+    }
+
+    .sectionTitle h2{
+      margin:0;
+      font-size: 18px;
+      color: var(--navy-dark);
+      letter-spacing: .2px;
+    }
+
+    .sectionTitle p{
+      margin:0;
+      color: var(--grey);
+      font-size: 13px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .item h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--navy-dark);
+    }
+
+    .item p{
+      margin: 0;
+      color: var(--grey);
+      font-size: 14px;
+    }
+
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .price .amount{
+      font-size: 28px;
+      margin: 10px 0 6px;
+      letter-spacing: -0.6px;
+      color: var(--navy-dark);
+    }
+
+    .muted{
+      color: var(--grey);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    footer{
+      padding: 28px 0 10px;
+      color: var(--grey);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 26px;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+      nav{ justify-content:flex-start; }
+    }
   </style>
 </head>
-<body>
 
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">Sentinel <span>• Cyber checks</span></div>
-      <div class="navlinks">
-        <a href="#free">Free check</a>
-        <a href="#services">Services</a>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- Put your logo at: assets/logo.png -->
+        <img class="logo" src="assets/logo.png" alt="senitel logo" />
+        <div class="brandTitle">
+          <strong>Senitel</strong>
+          <span>cyber security</span>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#checks">What I check</a>
+        <a href="#experience">Experience</a>
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
-      </div>
-    </div>
-
-    <header class="hero">
-      <div class="badge">Helping UK small businesses improve cyber security — without jargon</div>
-      <h1>Free Cyber Health Check + clear report</h1>
-      <p class="lead">
-        If you don’t have an IT department, you’re not alone. Sentinel helps you spot the risks, fix the basics,
-        and get a simple, prioritised plan you can actually follow.
-      </p>
-
-      <div class="cta">
-        <!-- CHANGE THIS EMAIL -->
-        <a class="btn primary" href="mailto:paul.curran@icloud.com?subject=Free%20Cyber%20Health%20Check%20-%20Request">Request the free health check</a>
-        <a class="btn ghost" href="#pricing">See scan & report prices</a>
-      </div>
-
-      <div class="kpi">
-        <div class="item">✅ Plain-English reporting</div>
-        <div class="item">✅ Quick wins + next steps</div>
-        <div class="item">✅ Optional fix & retest support</div>
-      </div>
+      </nav>
     </header>
 
-    <section id="free">
-      <div class="two">
-        <div>
-          <h2>What’s included in the free Cyber Health Check</h2>
-          <p class="muted">
-            A fast, practical assessment to highlight obvious gaps and reduce your risk. Ideal if you’re not sure where to start.
-          </p>
-          <ul>
-            <li>15–20 minute call to understand your setup (devices, email, backups, remote access)</li>
-            <li>Checklist review of common controls (MFA, password policy, patching, backups, admin accounts)</li>
-            <li><strong>Free summary report</strong> (top risks + “next 10 actions”)</li>
-            <li>Optional quote for fixes or a full scan & report (no pressure)</li>
-          </ul>
-          <p class="small" style="margin-top:10px;">
-            You’ll get a short PDF-style write-up you can keep on file (useful for insurers and basic compliance).
-          </p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <div class="badge">Free cyber health check · Plain-English results</div>
+        <h1>Is your business secure?</h1>
+        <p class="lead">
+          Would you know if you’d been breached — and are you safe from a data loss?
+          If you’re not sure, I can check this for you and give you clear, practical next steps.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#contact">Book the free check</a>
+          <a class="btn" href="#checks">See what I check</a>
         </div>
-        <div class="card">
-          <h3>Deliverable</h3>
-          <p>Simple report with:</p>
-          <ul>
-            <li>Risk summary (High / Med / Low)</li>
-            <li>Top 10 actions ranked by impact</li>
-            <li>Quick wins you can do today</li>
-          </ul>
+
+        <div class="callout">
+          <strong style="color:var(--navy-dark);">No jargon. No scare tactics.</strong><br />
+          Just a sensible baseline: what’s exposed, what’s most likely to go wrong, and what to fix first.
         </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 8px; color:var(--navy-dark);">What you’ll get</h3>
+        <ul class="list">
+          <li>Quick discovery + risk snapshot</li>
+          <li>Vulnerability scanning to spot weaknesses attackers look for</li>
+          <li>Internet-facing exposure checks</li>
+          <li>Internal/On-site exposure checks</li>
+          <li>Backup & recovery sanity check</li>
+          <li>Prioritised action list (top fixes first)</li>
+        </ul>
+        <p class="muted" style="margin-top:12px;">
+          Ideal for small businesses without an IT department.
+        </p>
       </div>
     </section>
 
-    <section id="services">
-      <h2>Services</h2>
-      <div class="grid cols3">
-        <div class="card">
-          <h3>Vulnerability Scan + Report</h3>
-          <p>External and/or internal scanning with a prioritised, plain-English report and recommended fixes.</p>
-        </div>
-        <div class="card">
-          <h3>Microsoft 365 Security Setup</h3>
-          <p>MFA, safer sign-in, account protection, secure sharing, and baseline policies.</p>
-        </div>
-        <div class="card">
-          <h3>Backup & Recovery Check</h3>
-          <p>Make sure backups exist, are restorable, and protected from ransomware.</p>
-        </div>
-        <div class="card">
-          <h3>Phishing & Awareness Starter</h3>
-          <p>Simple training + practical guidance to reduce clicks and improve reporting.</p>
-        </div>
-        <div class="card">
-          <h3>Fix Support + Retest</h3>
-          <p>We can help implement fixes, then retest to prove improvements.</p>
-        </div>
-        <div class="card">
-          <h3>Incident Readiness</h3>
-          <p>What to do if you’re hit: contacts, steps, and a basic response plan.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <h2>Scan tools + reports (simple pricing)</h2>
-      <p class="muted">
-        Prices depend on number of devices and whether you want external, internal, or both.
-        Below are clear starting points for small businesses.
-      </p>
-
-      <div class="grid cols3" style="margin-top:14px;">
-        <div class="card">
-          <h3>Starter Scan <span class="pill">External</span></h3>
-          <p>Public-facing scan + report. Great for small sites and basic exposure checks.</p>
-          <div class="price">£149</div>
-          <ul>
-            <li>External scan of public IP / website exposure</li>
-            <li>Plain-English report (High/Med/Low)</li>
-            <li>Top 10 actions</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Standard Scan <span class="pill">Internal</span></h3>
-          <p>Internal scan on your network to find weak spots on laptops, PCs, and shared devices.</p>
-          <div class="price">£299</div>
-          <ul>
-            <li>Internal scan (up to ~10 devices)</li>
-            <li>Prioritised fixes + guidance</li>
-            <li>1 follow-up call to walk through results</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Complete <span class="pill">External + Internal</span></h3>
-          <p>Best value: full visibility + a tighter action plan.</p>
-          <div class="price">£499</div>
-          <ul>
-            <li>External + internal scan</li>
-            <li>Executive summary + technical appendix</li>
-            <li>Retest after fixes (one round)</li>
-          </ul>
-        </div>
+    <!-- WHAT I CHECK -->
+    <section id="checks" class="section">
+      <div class="sectionTitle">
+        <h2>What I check</h2>
+        <p>Focused on the stuff that actually reduces risk.</p>
       </div>
 
+      <div class="grid3">
+        <div class="card item">
+          <h3>Accounts & access</h3>
+          <p>Passwords, MFA, shared accounts, admin rights, and who has access to what.</p>
+        </div>
+
+        <div class="card item">
+          <h3>Email security</h3>
+          <p>Phishing exposure, mailbox protection basics, and account takeover risk.</p>
+        </div>
+
+        <div class="card item">
+          <h3>Backups & recovery</h3>
+          <p>Are backups running, protected, and can you actually restore if you lose data?</p>
+        </div>
+
+        <div class="card item">
+          <h3>Vulnerability scanning</h3>
+          <p>
+            I run a vulnerability scanning tool to identify weaknesses hackers commonly exploit.
+            Scans come in different levels — pay more for a deeper, more extensive scan and report.
+          </p>
+        </div>
+
+        <div class="card item">
+          <h3>Device basics</h3>
+          <p>Updates, endpoint protection, disk encryption, and simple hardening wins.</p>
+        </div>
+
+        <div class="card item">
+          <h3>Action plan</h3>
+          <p>A prioritised list of fixes you can do yourself (or I can help you implement).</p>
+        </div>
+      </div>
       <div class="card" style="margin-top:14px;">
-        <h3>What scan tools do you use?</h3>
-        <p class="muted">
-          Industry-standard vulnerability scanning tools (where appropriate), combined with a human review.
-          The key difference is the output: you get a clear, prioritised report and practical next steps.
-        </p>
-        <p class="small">
-          Note: we only scan systems you explicitly authorise, and we avoid disruptive testing on live business-critical services.
+        <h3 style="margin:0 0 8px; color:var(--navy-dark);">Scan levels</h3>
+        <p style="margin:0; color:var(--grey); font-size:14px;">
+          Not every business needs the same depth. I offer different scan levels — from a quick baseline scan
+          to more extensive scanning and reporting. You only pay for the depth you need.
         </p>
       </div>
-
-      <p class="small" style="margin-top:12px;">
-        Want monthly support? Ongoing packages can include patching checks, account reviews, and quarterly rescans.
-      </p>
+      
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="two">
-        <div class="card">
-          <h3>Book the free health check</h3>
-          <p class="muted">Send a quick email and I’ll reply with a couple of time slots.</p>
-          <p style="margin:12px 0 0;">
-            <!-- CHANGE THESE -->
-            Email: <a href="mailto:paul.curran@icloud.com?subject=Sentinel%20enquiry">paul.curran@icloud.com</a><br/>
-            Phone/WhatsApp: <strong>+44 7xxx xxx xxx</strong>
-          </p>
-        </div>
-        <div class="card">
-          <h3>Based in the UK</h3>
-          <p class="muted">Remote support available. On-site possible by arrangement.</p>
-          <p class="small" style="margin-top:10px;">
-            Disclaimer: Sentinel is an independent business.
-          </p>
-        </div>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="sectionTitle">
+        <h2>Experience you can trust</h2>
+        <p>High-assurance mindset, simplified for small business.</p>
+      </div>
+
+      <div class="card">
+        <p style="margin:0; color:var(--grey); font-size:15px;">
+          I have <strong style="color:var(--navy-dark);">20 years’ experience</strong> securing and engineering systems in
+          high-assurance environments, including work on <strong style="color:var(--navy-dark);">MOD, military, nuclear,</strong>
+          and <strong style="color:var(--navy-dark);">government</strong> systems.
+          <br /><br />
+          The difference here: you get that disciplined approach, but explained simply — with practical steps that fit a small business.
+        </p>
       </div>
     </section>
 
-    <div class="footer">
-      © <span id="y"></span> Sentinel • Plain-English cyber security support for small businesses
-    </div>
+    <!-- PRICING -->
+    <section id="pricing" class="section">
+      <div class="sectionTitle">
+        <h2>Pricing</h2>
+        <p>Simple packages — update values when ready.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="card price">
+          <h3 style="margin:0; color:var(--navy-dark);">Starter</h3>
+          <div class="amount">£250</div>
+          <p class="muted">One-off</p>
+          <ul class="list">
+            <li>Light vulnerability scan (internet-facing)</li>
+            <li>Short report</li>
+            <li>Top priority fixes</li>
+          </ul>
+        </div>
+
+        <div class="card price">
+          <h3 style="margin:0; color:var(--navy-dark);">Standard</h3>
+          <div class="amount">£400</div>
+          <p class="muted">One-off</p>
+          <ul class="list">
+            <li>Standard vulnerability scan (broader coverage)</li>
+            <li>Plain-English report with evidence</li>
+            <li>Hardening checklist</li>
+          </ul>
+        </div>
+
+        <div class="card price">
+          <h3 style="margin:0; color:var(--navy-dark);">Plus</h3>
+          <div class="amount">£50 / mo</div>
+          <p class="muted">Ongoing</p>
+          <ul class="list">
+            <li>Deeper scan options + monthly checks</li>
+            <li>Support & guidance</li>
+            <li>Ongoing improvements</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="sectionTitle">
+        <h2>Book your free check</h2>
+        <p>Tell me your business type and staff count.</p>
+      </div>
+
+      <div class="card">
+        <p style="margin:0; color:var(--grey);">
+          Email: <a href="mailto:paul.curran"icloud.com">paul@senitel.com</a><br />
+          Phone: <a href="tel:+447000000000">+44 7000 000000</a>
+        </p>
+        <div class="callout" style="margin-top:14px;">
+          <strong style="color:var(--navy-dark);">Tip:</strong> If you want enquiries without publishing your phone number,
+          I can add a simple contact form that emails you.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Senitel. All rights reserved.
+    </footer>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
